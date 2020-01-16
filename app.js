@@ -4,7 +4,7 @@ const app = new Vue({
   el: "#app",
   data: {
     product: "Socks",
-    image: "socks.jpg",
+    image: "https://www.vuemastery.com/images/challenges/vmSocks-green-onWhite.jpg",
     alt: "socks",
     inventory: 100,
     onSale: true,
