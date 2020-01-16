@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue Online Store</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="nav-bar"></div>
+
+  <div id="app">
+
+    <div class="product">
+
+      <div class="product-image">
+        <img :src="image" :alt="alt" />
+      </div>
+
+      <div class="product-info">
+        <h1>{{ product }}</h1>
+        <p v-if="inventory > 10">In Stock</p>
+        <p v-else-if="inventory<= 10 && inventory >0">Almost Gone!</p>
+        <p v-else>Out of Stock</p>
+        <p v-show="onSale" class="sale">On Sale!</p>
+
+        <ul>
+          <li v-for="item in details">{{ item }}</li>
+        </ul>
+
+        <div v-for="item in variants" :key="item.variantId" class="color-box" :style="{ backgroundColor: item.variantColor}" @mouseover="updateProduct(item.variantImage)">
+        </div>
+
+        <div class="btns-row">
+          <button v-on:click="addToCart">Add to cart</button>
+          <div class="cart">
+            <p>Cart({{ cart }})</p>
+          </div>
+          <button @click="removeFromCart">Remove item</button>
+        </div>
+
+
+      </div>
+
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
