@@ -1,4 +1,4 @@
-# vue-online-store
+# Online Store with Vue.js
 Learning Vue.js to create a simple online store
 
 * display products
